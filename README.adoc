@@ -1,0 +1,50 @@
+image::https://img.shields.io/maven-central/v/net.oneandone.jsoup/jsoup-hamcrest[link=https://search.maven.org/artifact/net.oneandone.jsoup/jsoup-hamcrest]
+image::https://img.shields.io/github/license/oneandone/jsoup-hamcrest[link=license.txt]
+image::https://img.shields.io/travis/oneandone/jsoup-hamcrest[]
+
+== JSoup Hamcrest Matchers
+
+jsoup-hamcrest brings the power of css matchers to your tests.
+
+=== Maven
+
+[source,xml]
+----
+<dependencies>
+    <dependency>
+        <groupId>net.oneandone.jsoup</groupId>
+        <artifactId>jsoup-hamcrest</artifactId>
+        <version>1.0.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+----
+
+You can check the latest version https://search.maven.org/artifact/net.oneandone.jsoup/jsoup-hamcrest[here].
+
+=== Usage
+
+jsoup-hamcrest uses a fluent api design to create your assertions, while still offering the comparability of Hamcrest matchers.
+
+[source,java]
+----
+import static net.oneandone.jsoup.hamcrest.fluent.DocumentAssertions.anElement;  // <1>
+import static net.oneandone.jsoup.hamcrest.fluent.JsoupAssertions.html;          // <1>
+
+html(source)                                                  // <2>
+    .expect(anElement("#exampleInputEmail")                   // <3>
+        .hasAttribute("placeholder")                          // <4>
+        .hasAttribute("placeholder", "Email")                 // <5>
+        .hasAttribute("placeholder", equalTo("Email")));      // <6>
+----
+<1> static import of factory methods for better readability (optional)
+<2> create an instance of `JsoupAssertions` using `html` factory method
+<3> create an expectation, you can create multiple expectations for a document by chaining `expect` or its alias `and`.
+    `anElement` creates a matcher for a single element with the given css query.
+    (There is also `eachElement` and `elements` for performing assertions on each element or on the collection of found elements respectively)
+<4> `hasAttribute` asserts the existence of the `placeholder` attribute on the element
+<5> `hasAttribute` asserts that the value of the `placeholder` attribute is `Email`
+<6> `hasAttribute` asserts that the value of the `placeholder` attribute is `Email` using a hamcrest matcher, you could also use `containsString` for example.
+
+For more examples take a look at the https://github.com/1and1/jsoup-hamcrest/blob/master/src/test/java/net/oneandone/jsoup/hamcrest/AllMatcherHappyTest.java[AllMatcherHappyTest]
+or https://github.com/1and1/jsoup-hamcrest/blob/master/src/test/java/net/oneandone/jsoup/hamcrest/FluentExampleTest.java[FluentExampleTest] to see usage examples.
