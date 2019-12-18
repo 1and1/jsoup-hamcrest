@@ -27,7 +27,7 @@
 
     <groupId>net.oneandone.jsoup</groupId>
     <artifactId>jsoup-hamcrest</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <description>Hamcrest matchers to support the use of Jsoup in tests.</description>
 
     <packaging>jar</packaging>
@@ -48,7 +48,7 @@
         <connection>scm:git:git://github.com/1and1/jsoup-hamcrest.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/1and1/jsoup-hamcrest.git</developerConnection>
         <url>https://github.com/1and1/jsoup-hamcrest/</url>
-        <tag>jsoup-hamcrest-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>
