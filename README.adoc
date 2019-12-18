@@ -1,8 +1,8 @@
 [.float-group]
 --
-image::https://img.shields.io/maven-central/v/net.oneandone.jsoup/jsoup-hamcrest[link=https://search.maven.org/artifact/net.oneandone.jsoup/jsoup-hamcrest]
-image::https://img.shields.io/github/license/oneandone/jsoup-hamcrest[link=license.txt]
-image::https://img.shields.io/travis/oneandone/jsoup-hamcrest[]
+image::https://img.shields.io/maven-central/v/net.oneandone.jsoup/jsoup-hamcrest[link=https://search.maven.org/artifact/net.oneandone.jsoup/jsoup-hamcrest,float=left]
+image::https://img.shields.io/github/license/oneandone/jsoup-hamcrest[link=license.txt,float=left]
+image::https://img.shields.io/travis/oneandone/jsoup-hamcrest[float=left]
 --
 
 == JSoup Hamcrest Matchers
