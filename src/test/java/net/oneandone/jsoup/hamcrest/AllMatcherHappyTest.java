@@ -19,6 +19,7 @@ package net.oneandone.jsoup.hamcrest;
 
 import static net.oneandone.jsoup.hamcrest.ElementMatchers.predicate;
 import static net.oneandone.jsoup.hamcrest.fluent.DocumentAssertions.anElement;
+import static net.oneandone.jsoup.hamcrest.fluent.DocumentAssertions.elements;
 import static net.oneandone.jsoup.hamcrest.fluent.JsoupAssertions.html;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -88,6 +89,15 @@ public class AllMatcherHappyTest extends HtmlBaseTest {
                                 description -> {
                                 }, (element, description) -> {
                                 })));
+    }
+
+
+    @Test
+    public void elementsHasCount() {
+        html(source)
+                .expect(elements("form input[type=submit], form button[type=submit]")
+                        .hasCount(1)
+                        .hasCount(equalTo(1)));
     }
 
     @Test

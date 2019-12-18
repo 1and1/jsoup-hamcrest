@@ -53,7 +53,7 @@ public class ElementsAssertions implements DocumentMatcher {
     /**
      * Changes the fluent style to apply to each element hereafter instead
      *
-     * @return
+     * @return EachElementAssertions
      */
     public EachElementAssertions each() {
         return new EachElementAssertions(css, this);
@@ -67,6 +67,17 @@ public class ElementsAssertions implements DocumentMatcher {
      */
     public ElementsAssertions hasCount(int count) {
         matchers.add(hasSize(count));
+        return this;
+    }
+
+    /**
+     * Assert that a count of elements found by the css query.
+     *
+     * @param countMatcher the hamcrest matcher to use
+     * @return this for fluent chaining
+     */
+    public ElementsAssertions hasCount(Matcher<? super Integer> countMatcher) {
+        matchers.add(hasSize(countMatcher));
         return this;
     }
 }
